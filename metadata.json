@@ -1,0 +1,6 @@
+{
+  "name": "Car Shine Detailing & Auto Store - Shahkot",
+  "description": "Professional car washing, detailing, carpet cleaning, oil change service, and genuine auto accessories store in Shahkot.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
