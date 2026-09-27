@@ -138,22 +138,22 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs animate-in fade-in duration-200">
       <div
-        className="relative w-full max-w-xl bg-[#141820] border border-slate-700 rounded-2xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col"
+        className="relative w-full max-w-xl bg-surface border border-border rounded-2xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-5 border-b border-slate-800 bg-[#161a24]">
+        <div className="flex items-center justify-between p-5 border-b border-border bg-[#161a24]">
           <div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-red-500">
               Car Shine Workshop Booking
             </span>
-            <h2 className="text-lg font-bold text-white">
+            <h2 className="text-lg font-bold text-primary">
               {submittedBooking ? 'Booking Confirmed!' : 'Book Service Appointment'}
             </h2>
           </div>
           <button
             onClick={handleCloseAll}
-            className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
+            className="p-1.5 rounded-lg bg-surface hover:bg-surface-elevated text-secondary hover:text-primary transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -169,47 +169,47 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-white mb-1">
+                <h3 className="text-xl font-bold text-primary mb-1">
                   Thank You, {submittedBooking.customerName}!
                 </h3>
-                <p className="text-xs text-slate-300 max-w-md mx-auto">
+                <p className="text-xs text-secondary max-w-md mx-auto">
                   Your appointment request has been recorded. Our team at Main Nankana Mor, Shahkot is ready to serve you.
                 </p>
               </div>
 
               {/* Booking Voucher */}
-              <div className="bg-[#181d28] border border-slate-700/80 rounded-xl p-4 text-left text-xs space-y-2">
-                <div className="flex justify-between pb-2 border-b border-slate-700">
-                  <span className="text-slate-400">Booking Reference:</span>
-                  <span className="font-bold text-white font-mono">{submittedBooking.id}</span>
+              <div className="bg-surface-elevated border border-border/80 rounded-xl p-4 text-left text-xs space-y-2">
+                <div className="flex justify-between pb-2 border-b border-border">
+                  <span className="text-secondary">Booking Reference:</span>
+                  <span className="font-bold text-primary font-mono">{submittedBooking.id}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Service:</span>
-                  <span className="font-semibold text-white">{submittedBooking.serviceName}</span>
+                  <span className="text-secondary">Service:</span>
+                  <span className="font-semibold text-primary">{submittedBooking.serviceName}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Vehicle / Item:</span>
-                  <span className="text-slate-200">
+                  <span className="text-secondary">Vehicle / Item:</span>
+                  <span className="text-primary">
                     {submittedBooking.vehicleType}{' '}
                     {submittedBooking.vehicleModel && `(${submittedBooking.vehicleModel})`}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Appointment Date & Time:</span>
-                  <span className="text-slate-200">
+                  <span className="text-secondary">Appointment Date & Time:</span>
+                  <span className="text-primary">
                     {submittedBooking.date} · {submittedBooking.timeSlot}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Location:</span>
-                  <span className="text-slate-200">
+                  <span className="text-secondary">Location:</span>
+                  <span className="text-primary">
                     {submittedBooking.serviceType === 'workshop'
                       ? 'Main Nankana Mor, Shahkot'
                       : `Doorstep: ${submittedBooking.address || 'Customer Location'}`}
                   </span>
                 </div>
-                <div className="flex justify-between pt-2 border-t border-slate-700 text-sm">
-                  <span className="font-medium text-slate-300">Estimated Rate:</span>
+                <div className="flex justify-between pt-2 border-t border-border text-sm">
+                  <span className="font-medium text-secondary">Estimated Rate:</span>
                   <span className="font-bold text-emerald-400 tabular-nums">
                     {formatPKR(submittedBooking.estimatedPrice)}
                   </span>
@@ -222,7 +222,7 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                   href={generateWhatsAppBookingLink(submittedBooking)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition-colors"
+                  className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-500 text-primary font-semibold rounded-lg text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>Send Confirmation on WhatsApp (0316-6287979)</span>
@@ -231,13 +231,13 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                 <button
                   type="button"
                   onClick={handleCloseAll}
-                  className="w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg text-xs font-medium transition-colors"
+                  className="w-full py-2.5 px-4 bg-surface hover:bg-surface-elevated text-secondary hover:text-primary rounded-lg text-xs font-medium transition-colors"
                 >
                   Done & Back to Site
                 </button>
               </div>
 
-              <div className="flex items-center justify-center gap-2 text-xs text-slate-400 pt-2">
+              <div className="flex items-center justify-center gap-2 text-xs text-secondary pt-2">
                 <Phone className="w-3.5 h-3.5 text-red-500" />
                 <span>Hotline: Saqlain Amin (0316-6287979)</span>
               </div>
@@ -248,7 +248,7 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
               
               {/* Select Service */}
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-secondary mb-1.5">
                   1. Choose Service Required
                 </label>
                 <select
@@ -259,7 +259,7 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                     if (s?.category === 'bike-wash') setVehicleType('bike');
                     if (s?.category === 'carpet-cleaning') setVehicleType('carpet');
                   }}
-                  className="w-full bg-[#181d28] border border-slate-700 rounded-lg px-3 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-red-500"
+                  className="w-full bg-surface-elevated border border-border rounded-lg px-3 py-2.5 text-xs sm:text-sm text-primary focus:outline-none focus:border-red-500"
                 >
                   {SERVICES.map((s) => (
                     <option key={s.id} value={s.id}>
@@ -271,10 +271,10 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
 
               {/* Vehicle Type / Area */}
               {currentService.category === 'carpet-cleaning' ? (
-                <div className="p-3 rounded-lg bg-[#181d28] border border-slate-700 space-y-2">
-                  <div className="flex items-center justify-between text-xs text-slate-300">
+                <div className="p-3 rounded-lg bg-surface-elevated border border-border space-y-2">
+                  <div className="flex items-center justify-between text-xs text-secondary">
                     <span className="font-semibold">Estimated Carpet Area:</span>
-                    <span className="font-bold text-white tabular-nums">{carpetSqFt} sq. ft.</span>
+                    <span className="font-bold text-primary tabular-nums">{carpetSqFt} sq. ft.</span>
                   </div>
                   <input
                     type="range"
@@ -285,7 +285,7 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                     onChange={(e) => setCarpetSqFt(parseInt(e.target.value))}
                     className="w-full accent-red-600 cursor-pointer"
                   />
-                  <div className="flex justify-between text-[10px] text-slate-500">
+                  <div className="flex justify-between text-[10px] text-muted">
                     <span>Small Rug (24 sq.ft)</span>
                     <span>Living Room (54-80 sq.ft)</span>
                     <span>Hall / Office (150+ sq.ft)</span>
@@ -293,7 +293,7 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                 </div>
               ) : currentService.category === 'bike-wash' ? (
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <label className="block text-xs font-semibold text-secondary mb-1.5">
                     Motorbike Model
                   </label>
                   <input
@@ -301,12 +301,12 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                     placeholder="e.g. Honda CD 70, CG 125, Suzuki GS 150"
                     value={vehicleModel}
                     onChange={(e) => setVehicleModel(e.target.value)}
-                    className="w-full bg-[#181d28] border border-slate-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-red-500"
+                    className="w-full bg-surface-elevated border border-border rounded-lg px-3 py-2 text-xs sm:text-sm text-primary focus:outline-none focus:border-red-500"
                   />
                 </div>
               ) : (
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <label className="block text-xs font-semibold text-secondary mb-1.5">
                     2. Vehicle Classification
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -321,12 +321,12 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                         onClick={() => setVehicleType(v.id)}
                         className={`p-2.5 rounded-lg border text-left transition-all text-xs ${
                           vehicleType === v.id
-                            ? 'border-red-500 bg-red-950/20 text-white'
-                            : 'border-slate-700 bg-[#181d28] text-slate-300 hover:border-slate-600'
+                            ? 'border-red-500 bg-red-950/20 text-primary'
+                            : 'border-border bg-surface-elevated text-secondary hover:border-slate-600'
                         }`}
                       >
                         <div className="font-semibold">{v.label}</div>
-                        <div className="text-[10px] text-slate-400 truncate">{v.desc}</div>
+                        <div className="text-[10px] text-secondary truncate">{v.desc}</div>
                       </button>
                     ))}
                   </div>
@@ -336,14 +336,14 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                     placeholder="Specific Car Model & Color (e.g. White Corolla 2021)"
                     value={vehicleModel}
                     onChange={(e) => setVehicleModel(e.target.value)}
-                    className="mt-2 w-full bg-[#181d28] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-red-500"
+                    className="mt-2 w-full bg-surface-elevated border border-border rounded-lg px-3 py-2 text-xs text-primary placeholder-muted focus:outline-none focus:border-red-500"
                   />
                 </div>
               )}
 
               {/* Service Mode */}
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label className="block text-xs font-semibold text-secondary mb-1.5">
                   3. Service Location
                 </label>
                 <div className="grid grid-cols-2 gap-2 text-xs">
@@ -352,14 +352,14 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                     onClick={() => setServiceType('workshop')}
                     className={`p-2.5 rounded-lg border text-left flex items-start gap-2 ${
                       serviceType === 'workshop'
-                        ? 'border-red-500 bg-red-950/20 text-white'
-                        : 'border-slate-700 bg-[#181d28] text-slate-300'
+                        ? 'border-red-500 bg-red-950/20 text-primary'
+                        : 'border-border bg-surface-elevated text-secondary'
                     }`}
                   >
                     <MapPin className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold">At Workshop</div>
-                      <div className="text-[10px] text-slate-400">Main Nankana Mor, Shahkot</div>
+                      <div className="text-[10px] text-secondary">Main Nankana Mor, Shahkot</div>
                     </div>
                   </button>
 
@@ -368,14 +368,14 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                     onClick={() => setServiceType('doorstep')}
                     className={`p-2.5 rounded-lg border text-left flex items-start gap-2 ${
                       serviceType === 'doorstep'
-                        ? 'border-red-500 bg-red-950/20 text-white'
-                        : 'border-slate-700 bg-[#181d28] text-slate-300'
+                        ? 'border-red-500 bg-red-950/20 text-primary'
+                        : 'border-border bg-surface-elevated text-secondary'
                     }`}
                   >
                     <Sparkles className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
                     <div>
                       <div className="font-semibold">Home / Office Pickup</div>
-                      <div className="text-[10px] text-slate-400">Available across Shahkot</div>
+                      <div className="text-[10px] text-secondary">Available across Shahkot</div>
                     </div>
                   </button>
                 </div>
@@ -384,7 +384,7 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
               {/* Date & Time Slot */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <label className="block text-xs font-semibold text-secondary mb-1.5">
                     Preferred Date
                   </label>
                   <input
@@ -392,18 +392,18 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                     required
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full bg-[#181d28] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500"
+                    className="w-full bg-surface-elevated border border-border rounded-lg px-3 py-2 text-xs text-primary focus:outline-none focus:border-red-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <label className="block text-xs font-semibold text-secondary mb-1.5">
                     Time Window
                   </label>
                   <select
                     value={timeSlot}
                     onChange={(e) => setTimeSlot(e.target.value)}
-                    className="w-full bg-[#181d28] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500"
+                    className="w-full bg-surface-elevated border border-border rounded-lg px-3 py-2 text-xs text-primary focus:outline-none focus:border-red-500"
                   >
                     {TIME_SLOTS.map((slot) => (
                       <option key={slot} value={slot}>
@@ -415,10 +415,10 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
               </div>
 
               {/* Customer Contact Info */}
-              <div className="space-y-3 pt-2 border-t border-slate-800">
+              <div className="space-y-3 pt-2 border-t border-border">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">
+                    <label className="block text-xs font-semibold text-secondary mb-1">
                       Your Full Name *
                     </label>
                     <input
@@ -427,11 +427,11 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                       placeholder="e.g. Muhammad Zahid"
                       value={customerName}
                       onChange={(e) => setCustomerName(e.target.value)}
-                      className="w-full bg-[#181d28] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-red-500"
+                      className="w-full bg-surface-elevated border border-border rounded-lg px-3 py-2 text-xs text-primary placeholder-muted focus:outline-none focus:border-red-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">
+                    <label className="block text-xs font-semibold text-secondary mb-1">
                       Mobile / WhatsApp Number *
                     </label>
                     <input
@@ -440,14 +440,14 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                       placeholder="0316-XXXXXXX"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full bg-[#181d28] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-red-500 tabular-nums"
+                      className="w-full bg-surface-elevated border border-border rounded-lg px-3 py-2 text-xs text-primary placeholder-muted focus:outline-none focus:border-red-500 tabular-nums"
                     />
                   </div>
                 </div>
 
                 {serviceType === 'doorstep' && (
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">
+                    <label className="block text-xs font-semibold text-secondary mb-1">
                       Shahkot Pickup Address *
                     </label>
                     <input
@@ -456,13 +456,13 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                       placeholder="Street, Mohallah, House Number, Shahkot"
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
-                      className="w-full bg-[#181d28] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-red-500"
+                      className="w-full bg-surface-elevated border border-border rounded-lg px-3 py-2 text-xs text-primary placeholder-muted focus:outline-none focus:border-red-500"
                     />
                   </div>
                 )}
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">
+                  <label className="block text-xs font-semibold text-secondary mb-1">
                     Special Instructions / Notes (Optional)
                   </label>
                   <input
@@ -470,23 +470,23 @@ export const ServiceBookingModal: React.FC<ServiceBookingModalProps> = ({
                     placeholder="e.g. Please focus on scratch on driver door, or heavy dust in carpets"
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    className="w-full bg-[#181d28] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-red-500"
+                    className="w-full bg-surface-elevated border border-border rounded-lg px-3 py-2 text-xs text-primary placeholder-muted focus:outline-none focus:border-red-500"
                   />
                 </div>
               </div>
 
               {/* Price Summary & Submit */}
-              <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <div className="p-3.5 rounded-xl bg-background border border-border flex items-center justify-between">
                 <div>
-                  <span className="text-[11px] text-slate-400 block">Estimated Service Charge:</span>
-                  <span className="text-lg font-bold text-white tabular-nums">
+                  <span className="text-[11px] text-secondary block">Estimated Service Charge:</span>
+                  <span className="text-lg font-bold text-primary tabular-nums">
                     {formatPKR(estimatedPrice)}
                   </span>
                 </div>
 
                 <button
                   type="submit"
-                  className="px-5 py-2.5 bg-red-600 hover:bg-red-500 active:bg-red-700 text-white font-semibold text-xs sm:text-sm rounded-lg transition-colors shadow-md"
+                  className="px-5 py-2.5 bg-red-600 hover:bg-red-500 active:bg-red-700 text-primary font-semibold text-xs sm:text-sm rounded-lg transition-colors shadow-md"
                 >
                   Confirm Appointment
                 </button>

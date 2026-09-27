@@ -77,7 +77,7 @@ export const WhyChooseSection: React.FC = () => {
     <section
       ref={sectionRef}
       id="why-car-shine"
-      className="py-16 lg:py-20 bg-[#0d1017] border-y border-slate-800"
+      className="py-16 lg:py-20 bg-[#0d1017] border-y border-border"
       aria-labelledby="why-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -91,11 +91,11 @@ export const WhyChooseSection: React.FC = () => {
           </div>
           <h2
             id="why-heading"
-            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3"
+            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-primary tracking-tight mb-3"
           >
             Why Car Shine in Shahkot?
           </h2>
-          <p className="text-sm text-slate-400 leading-relaxed">
+          <p className="text-sm text-secondary leading-relaxed">
             We are not a basic car wash. We are a full automotive care destination
             committed to quality, honesty, and results.
           </p>
@@ -106,13 +106,13 @@ export const WhyChooseSection: React.FC = () => {
           {REASONS.map(({ icon: Icon, title, desc }, i) => (
             <div
               key={title}
-              className={`reveal reveal-delay-${Math.min(i % 4 + 1, 4)} p-5 rounded-2xl bg-[#141820] border border-slate-800 hover:border-red-600/30 card-hover group`}
+              className={`reveal reveal-delay-${Math.min(i % 4 + 1, 4)} p-5 rounded-2xl bg-surface border border-border hover:border-red-600/30 card-hover group`}
             >
-              <div className="w-10 h-10 rounded-xl bg-red-600/15 text-red-500 flex items-center justify-center mb-4 group-hover:bg-red-600 group-hover:text-white transition-colors duration-200">
+              <div className="w-10 h-10 rounded-xl bg-red-600/15 text-red-500 flex items-center justify-center mb-4 group-hover:bg-red-600 group-hover:text-primary transition-colors duration-200">
                 <Icon className="w-5 h-5" aria-hidden="true" />
               </div>
-              <h3 className="text-sm font-bold text-white mb-2 leading-snug">{title}</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">{desc}</p>
+              <h3 className="text-base font-bold text-primary mb-2 leading-snug">{title}</h3>
+              <p className="text-sm text-secondary leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>

@@ -33,7 +33,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookClick, onShopClick, onCarpetCl
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[600px] sm:min-h-[680px] lg:min-h-[720px] flex items-center overflow-hidden border-b border-slate-800"
+      className="relative min-h-[600px] sm:min-h-[680px] lg:min-h-[720px] flex items-center overflow-hidden border-b border-border"
       aria-label="Hero – Car Shine Detailing & Auto Store"
     >
       {/* ─── Background Image + Scrim ─────────────────────── */}
@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookClick, onShopClick, onCarpetCl
 
           {/* Headline */}
           <h1
-            className="text-[2.2rem] sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-5 animate-fade-up delay-100"
+            className="text-[2.2rem] sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight leading-[1.08] mb-5 animate-fade-up delay-100"
             style={{ textWrap: 'balance' } as React.CSSProperties}
           >
             Expert Car Detailing,
@@ -78,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookClick, onShopClick, onCarpetCl
           </h1>
 
           {/* Sub-text */}
-          <p className="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed max-w-xl animate-fade-up delay-200">
+          <p className="text-base sm:text-lg text-secondary mb-8 leading-relaxed max-w-xl animate-fade-up delay-200">
             From deep foam washes and underbody cleaning to paint correction,
             ceramic protection, genuine engine oils and professional carpet
             cleaning for homes and offices.
@@ -88,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookClick, onShopClick, onCarpetCl
           <div className="flex flex-wrap items-center gap-3 mb-10 animate-fade-up delay-300">
             <button
               onClick={onBookClick}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-red-600 hover:bg-red-500 active:bg-red-700 rounded-xl shadow-lg shadow-red-900/30 transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-primary bg-red-600 hover:bg-red-500 active:bg-red-700 rounded-xl shadow-lg shadow-red-900/30 transition-all hover:-translate-y-0.5"
               aria-label="Book a car service appointment"
             >
               <Calendar className="w-4 h-4" aria-hidden="true" />
@@ -97,7 +97,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookClick, onShopClick, onCarpetCl
 
             <button
               onClick={onShopClick}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 rounded-xl transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-primary bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 rounded-xl transition-all hover:-translate-y-0.5"
               aria-label="Browse auto store – oils and accessories"
             >
               <ShoppingBag className="w-4 h-4 text-red-400" aria-hidden="true" />
@@ -108,7 +108,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookClick, onShopClick, onCarpetCl
               href={`https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${waText}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-medium text-slate-200 hover:text-white rounded-xl hover:bg-white/5 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-medium text-primary hover:text-primary rounded-xl hover:bg-white/5 transition-colors"
               aria-label="Chat with Car Shine on WhatsApp"
             >
               <MessageCircle className="w-4 h-4 text-emerald-400" aria-hidden="true" />
@@ -127,7 +127,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookClick, onShopClick, onCarpetCl
               { icon: Calendar, text: 'Easy Booking' },
               { icon: MapPin, text: 'Local Shahkot Service' },
             ].map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-2 text-xs sm:text-[13px] text-slate-300">
+              <div key={text} className="flex items-center gap-2 text-xs sm:text-[13px] text-secondary">
                 <span className="shrink-0 w-5 h-5 rounded-full bg-red-600/25 flex items-center justify-center">
                   <Icon className="w-3 h-3 text-red-500" aria-hidden="true" />
                 </span>
@@ -141,7 +141,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookClick, onShopClick, onCarpetCl
       {/* ─── Scroll Down Hint ─────────────────────────────── */}
       <button
         onClick={scrollToContent}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300 transition-colors animate-fade-in delay-600"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-muted hover:text-secondary transition-colors animate-fade-in delay-600"
         aria-label="Scroll to next section"
       >
         <span className="text-[10px] uppercase tracking-widest font-medium">Explore</span>

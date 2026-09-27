@@ -20,9 +20,9 @@ interface ServicesSectionProps {
 // Image placeholder for services without a real photo
 const ServiceImgPlaceholder: React.FC<{ label?: string }> = ({ label }) => (
   <div className="w-full h-full img-placeholder flex flex-col items-center justify-center gap-2 text-center px-4">
-    <LayoutGrid className="w-8 h-8 text-slate-600" aria-hidden="true" />
-    {label && <span className="text-[11px] text-slate-600 leading-snug">{label}</span>}
-    <span className="text-[10px] text-slate-700 font-mono">[Image coming soon]</span>
+    <LayoutGrid className="w-8 h-8 text-muted" aria-hidden="true" />
+    {label && <span className="text-[11px] text-muted leading-snug">{label}</span>}
+    <span className="text-[10px] text-muted font-mono">[Image coming soon]</span>
   </div>
 );
 
@@ -35,17 +35,17 @@ const ServiceDetailCard: React.FC<{
     `Assalam-o-Alaikum Car Shine! I want to inquire about "${service.name}".`
   );
   return (
-    <div className="mt-3 p-4 rounded-xl bg-[#181d28] border border-slate-700/60 space-y-4">
-      <p className="text-xs text-slate-300 leading-relaxed">{service.description}</p>
+    <div className="mt-3 p-4 rounded-xl bg-surface-elevated border border-border/60 space-y-4">
+      <p className="text-xs text-secondary leading-relaxed">{service.description}</p>
 
       {/* All features */}
       <div>
-        <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
+        <div className="text-[11px] font-semibold text-secondary uppercase tracking-wider mb-2">
           What's Included
         </div>
         <ul className="space-y-1.5">
           {service.features.map((feat, i) => (
-            <li key={i} className="flex items-start gap-2 text-xs text-slate-300">
+            <li key={i} className="flex items-start gap-2 text-xs text-secondary">
               <CheckCircle2 className="w-3.5 h-3.5 text-red-500 shrink-0 mt-0.5" aria-hidden="true" />
               <span>{feat}</span>
             </li>
@@ -56,38 +56,38 @@ const ServiceDetailCard: React.FC<{
       {/* Vehicle pricing breakdown */}
       {service.vehiclePricing && (
         <div>
-          <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
+          <div className="text-[11px] font-semibold text-secondary uppercase tracking-wider mb-2">
             Pricing by Vehicle Type
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             {service.vehiclePricing.hatchback && (
-              <div className="p-2.5 rounded-lg bg-[#12151c] border border-slate-800 text-center">
-                <div className="text-[10px] text-slate-500 mb-0.5">Hatchback</div>
-                <div className="text-xs font-bold text-white tabular-nums">{formatPKR(service.vehiclePricing.hatchback)}</div>
+              <div className="p-2.5 rounded-lg bg-surface border border-border text-center">
+                <div className="text-[10px] text-muted mb-0.5">Hatchback</div>
+                <div className="text-xs font-bold text-primary tabular-nums">{formatPKR(service.vehiclePricing.hatchback)}</div>
               </div>
             )}
             {service.vehiclePricing.sedan && (
-              <div className="p-2.5 rounded-lg bg-[#12151c] border border-slate-800 text-center">
-                <div className="text-[10px] text-slate-500 mb-0.5">Sedan</div>
-                <div className="text-xs font-bold text-white tabular-nums">{formatPKR(service.vehiclePricing.sedan)}</div>
+              <div className="p-2.5 rounded-lg bg-surface border border-border text-center">
+                <div className="text-[10px] text-muted mb-0.5">Sedan</div>
+                <div className="text-xs font-bold text-primary tabular-nums">{formatPKR(service.vehiclePricing.sedan)}</div>
               </div>
             )}
             {service.vehiclePricing.suv && (
-              <div className="p-2.5 rounded-lg bg-[#12151c] border border-slate-800 text-center">
-                <div className="text-[10px] text-slate-500 mb-0.5">SUV / Jeep</div>
-                <div className="text-xs font-bold text-white tabular-nums">{formatPKR(service.vehiclePricing.suv)}</div>
+              <div className="p-2.5 rounded-lg bg-surface border border-border text-center">
+                <div className="text-[10px] text-muted mb-0.5">SUV / Jeep</div>
+                <div className="text-xs font-bold text-primary tabular-nums">{formatPKR(service.vehiclePricing.suv)}</div>
               </div>
             )}
             {service.vehiclePricing.commercial && (
-              <div className="p-2.5 rounded-lg bg-[#12151c] border border-slate-800 text-center">
-                <div className="text-[10px] text-slate-500 mb-0.5">Commercial</div>
-                <div className="text-xs font-bold text-white tabular-nums">{formatPKR(service.vehiclePricing.commercial!)}</div>
+              <div className="p-2.5 rounded-lg bg-surface border border-border text-center">
+                <div className="text-[10px] text-muted mb-0.5">Commercial</div>
+                <div className="text-xs font-bold text-primary tabular-nums">{formatPKR(service.vehiclePricing.commercial!)}</div>
               </div>
             )}
             {service.vehiclePricing.bike && (
-              <div className="p-2.5 rounded-lg bg-[#12151c] border border-slate-800 text-center">
-                <div className="text-[10px] text-slate-500 mb-0.5">Motorbike</div>
-                <div className="text-xs font-bold text-white tabular-nums">{formatPKR(service.vehiclePricing.bike)}</div>
+              <div className="p-2.5 rounded-lg bg-surface border border-border text-center">
+                <div className="text-[10px] text-muted mb-0.5">Motorbike</div>
+                <div className="text-xs font-bold text-primary tabular-nums">{formatPKR(service.vehiclePricing.bike)}</div>
               </div>
             )}
           </div>
@@ -98,7 +98,7 @@ const ServiceDetailCard: React.FC<{
       <div className="flex flex-wrap gap-2 pt-1">
         <button
           onClick={onBook}
-          className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-lg transition-colors"
+          className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-500 text-primary text-xs font-semibold rounded-lg transition-colors"
           aria-label={`Book ${service.name}`}
         >
           <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
@@ -108,7 +108,7 @@ const ServiceDetailCard: React.FC<{
           href={`https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${waText}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold rounded-lg transition-colors"
+          className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-primary text-xs font-semibold rounded-lg transition-colors"
           aria-label={`Inquire about ${service.name} on WhatsApp`}
         >
           <MessageCircle className="w-3.5 h-3.5" aria-hidden="true" />
@@ -163,24 +163,24 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
   return (
     <section
       ref={sectionRef}
-      className="py-16 lg:py-20 bg-[#0f1115]"
+      className="py-16 lg:py-20 bg-background"
       id="services"
       aria-labelledby="services-page-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-slate-800 gap-4 reveal">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-border gap-4 reveal">
           <div>
             <div className="text-[11px] font-bold uppercase tracking-widest text-red-500 mb-2">
               Our Professional Workshop Solutions
             </div>
-            <h1 id="services-page-heading" className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+            <h1 id="services-page-heading" className="text-2xl sm:text-4xl font-bold text-primary tracking-tight">
               Car Detailing, Polishing & Carpet Cleaning
             </h1>
             <div className="section-divider mt-2" aria-hidden="true" />
           </div>
-          <p className="text-sm text-slate-400 max-w-sm">
+          <p className="text-sm text-secondary max-w-sm">
             Equipped with hydraulic underbody ramps, snow foam systems, rotary polishers,
             and industrial carpet steam extractors.
           </p>
@@ -198,8 +198,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 }}
                 className={`px-4 py-2 text-xs font-semibold rounded-lg transition-colors whitespace-nowrap ${
                   selectedCategory === cat.id
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'bg-[#151922] text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700'
+                    ? 'bg-red-600 text-primary shadow-sm'
+                    : 'bg-surface text-secondary hover:text-primary border border-border hover:border-border'
                 }`}
                 aria-pressed={selectedCategory === cat.id}
               >
@@ -214,14 +214,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           {filteredServices.map((service, i) => (
             <article
               key={service.id}
-              className={`reveal reveal-delay-${Math.min(i % 3 + 1, 3)} bg-[#141820] border border-slate-800 rounded-xl overflow-hidden flex flex-col transition-all duration-200 ${
+              className={`reveal reveal-delay-${Math.min(i % 3 + 1, 3)} bg-surface border border-border rounded-xl overflow-hidden flex flex-col transition-all duration-200 ${
                 expandedServiceId === service.id
                   ? 'ring-1 ring-red-600/50'
-                  : 'hover:border-slate-700 card-hover'
+                  : 'hover:border-border card-hover'
               }`}
             >
               {/* Card Image */}
-              <div className="relative h-48 w-full overflow-hidden bg-slate-900 shrink-0">
+              <div className="relative h-48 w-full overflow-hidden bg-background shrink-0">
                 {service.image ? (
                   <img
                     src={service.image}
@@ -235,12 +235,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 <div className="absolute inset-0 bg-gradient-to-t from-[#141820]/80 via-transparent to-transparent" />
 
                 {service.badge && (
-                  <div className="absolute top-3 right-3 bg-red-600/90 text-white text-[11px] font-semibold px-2.5 py-1 rounded">
+                  <div className="absolute top-3 right-3 bg-red-600/90 text-primary text-[11px] font-semibold px-2.5 py-1 rounded">
                     {service.badge}
                   </div>
                 )}
 
-                <div className="absolute bottom-3 left-3 text-xs text-slate-300 flex items-center gap-1.5">
+                <div className="absolute bottom-3 left-3 text-xs text-secondary flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-red-400" aria-hidden="true" />
                   <span>{service.duration}</span>
                 </div>
@@ -249,13 +249,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               {/* Card Content */}
               <div className="p-5 flex-1 flex flex-col">
                 <div className="text-[11px] text-red-400 font-semibold mb-1">{service.categoryName}</div>
-                <h2 className="text-base font-bold text-white mb-2 leading-snug">{service.name}</h2>
-                <p className="text-xs text-slate-400 mb-3 line-clamp-2 leading-relaxed flex-grow">
+                <h2 className="text-base font-bold text-primary mb-2 leading-snug">{service.name}</h2>
+                <p className="text-xs text-secondary mb-3 line-clamp-2 leading-relaxed flex-grow">
                   {service.tagline}
                 </p>
 
                 {/* Top 3 features */}
-                <ul className="space-y-1.5 text-xs text-slate-300 mb-4">
+                <ul className="space-y-1.5 text-xs text-secondary mb-4">
                   {service.features.slice(0, 3).map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-red-500 shrink-0 mt-0.5" aria-hidden="true" />
@@ -265,17 +265,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 </ul>
 
                 {/* Price + CTA */}
-                <div className="pt-3 border-t border-slate-800 flex items-center justify-between mt-auto">
+                <div className="pt-3 border-t border-border flex items-center justify-between mt-auto">
                   <div>
-                    <span className="text-[10px] text-slate-500 block">Starting at</span>
-                    <span className="text-base font-bold text-white tabular-nums">
+                    <span className="text-[10px] text-muted block">Starting at</span>
+                    <span className="text-base font-bold text-primary tabular-nums">
                       {formatPKR(service.basePrice)}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => onSelectServiceToBook(service)}
-                      className="px-3 py-1.5 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5"
+                      className="px-3 py-1.5 bg-red-600 hover:bg-red-500 text-primary text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5"
                       aria-label={`Book ${service.name}`}
                     >
                       <Calendar className="w-3 h-3" aria-hidden="true" />
@@ -283,7 +283,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                     </button>
                     <button
                       onClick={() => toggleExpand(service.id)}
-                      className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+                      className="p-1.5 text-secondary hover:text-primary hover:bg-surface rounded-lg transition-colors"
                       aria-expanded={expandedServiceId === service.id}
                       aria-label={expandedServiceId === service.id ? 'Hide details' : 'View details'}
                     >
@@ -308,19 +308,19 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
         </div>
 
         {/* Bottom booking CTA */}
-        <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-[#171c26] to-[#12161f] border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-5 reveal">
+        <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-[#171c26] to-[#12161f] border border-border flex flex-col sm:flex-row items-center justify-between gap-5 reveal">
           <div>
-            <h3 className="text-base font-bold text-white mb-1">
+            <h3 className="text-base font-bold text-primary mb-1">
               Not sure which service you need?
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-secondary">
               Call or WhatsApp us — we'll guide you to the right service for your vehicle.
             </p>
           </div>
           <div className="flex flex-wrap gap-2 shrink-0">
             <a
               href={`tel:${BUSINESS_INFO.phone}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-lg border border-slate-700 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-surface hover:bg-surface-elevated text-primary text-xs font-semibold rounded-lg border border-border transition-colors"
             >
               Call: {BUSINESS_INFO.phoneFormatted}
             </a>
@@ -328,7 +328,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               href={`https://wa.me/${BUSINESS_INFO.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-primary text-xs font-semibold rounded-lg transition-colors"
             >
               <MessageCircle className="w-3.5 h-3.5" aria-hidden="true" />
               WhatsApp

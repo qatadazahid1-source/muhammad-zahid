@@ -57,20 +57,20 @@ export const ShopSection: React.FC<ShopSectionProps> = ({
   };
 
   return (
-    <section className="py-16 lg:py-20 bg-[#0f1115]" id="shop">
+    <section className="py-16 lg:py-20 bg-background" id="shop">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-slate-800">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-border">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-red-500 mb-2">
               Genuine Auto Parts & Accessories Store
             </div>
-            <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight [text-wrap:balance]">
+            <h2 className="text-2xl sm:text-4xl font-bold text-primary tracking-tight [text-wrap:balance]">
               Oils, Car Care & Interior Accessories
             </h2>
           </div>
-          <p className="mt-2 md:mt-0 text-xs sm:text-sm text-slate-400 max-w-md">
+          <p className="mt-2 md:mt-0 text-xs sm:text-sm text-secondary max-w-md">
             Directly sourced original lubricants, custom vehicle mats, silicone/alloy key covers, and Islamic hanging charms ready for local pickup in Shahkot or nationwide delivery.
           </p>
         </div>
@@ -80,18 +80,18 @@ export const ShopSection: React.FC<ShopSectionProps> = ({
           
           {/* Search bar */}
           <div className="relative flex-1 max-w-md">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-secondary absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               placeholder="Search oils (ZIC, Havoline), mats, key covers..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#151922] border border-slate-800 rounded-lg pl-9 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-red-500 transition-colors"
+              className="w-full bg-surface border border-border rounded-lg pl-9 pr-4 py-2.5 text-xs sm:text-sm text-primary placeholder-slate-500 focus:outline-none focus:border-red-500 transition-colors"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-secondary hover:text-primary"
               >
                 Clear
               </button>
@@ -99,12 +99,12 @@ export const ShopSection: React.FC<ShopSectionProps> = ({
           </div>
 
           {/* Sort selector */}
-          <div className="flex items-center gap-2 self-end sm:self-auto text-xs text-slate-400">
+          <div className="flex items-center gap-2 self-end sm:self-auto text-xs text-secondary">
             <span className="shrink-0">Sort By:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="bg-[#151922] border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500 cursor-pointer"
+              className="bg-surface border border-border rounded-lg px-3 py-2 text-xs text-primary focus:outline-none focus:border-red-500 cursor-pointer"
             >
               <option value="featured">Featured / Best Sellers</option>
               <option value="price-asc">Price: Low to High</option>
@@ -114,15 +114,15 @@ export const ShopSection: React.FC<ShopSectionProps> = ({
         </div>
 
         {/* Category Tabs (Segmented Control) */}
-        <div className="flex items-center gap-1.5 p-1 bg-[#151922] rounded-lg border border-slate-800 overflow-x-auto mb-8 max-w-full">
+        <div className="flex items-center gap-1.5 p-1 bg-surface rounded-lg border border-border overflow-x-auto mb-8 max-w-full">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-3 py-2 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 ${
                 selectedCategory === cat.id
-                  ? 'bg-red-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                  ? 'bg-red-600 text-primary shadow-sm'
+                  : 'text-secondary hover:text-primary hover:bg-surface/60'
               }`}
             >
               {cat.label}
@@ -131,26 +131,26 @@ export const ShopSection: React.FC<ShopSectionProps> = ({
         </div>
 
         {/* Results Count */}
-        <div className="text-xs text-slate-400 mb-6 flex items-center justify-between">
+        <div className="text-xs text-secondary mb-6 flex items-center justify-between">
           <span>
-            Showing <strong className="text-white tabular-nums">{filteredProducts.length}</strong> genuine products
+            Showing <strong className="text-primary tabular-nums">{filteredProducts.length}</strong> genuine products
           </span>
-          <span className="text-slate-500 hidden sm:inline">
+          <span className="text-muted hidden sm:inline">
             Free shipping in Shahkot on orders over Rs. 3,000
           </span>
         </div>
 
         {/* Product Grid */}
         {filteredProducts.length === 0 ? (
-          <div className="text-center py-16 bg-[#141820] border border-slate-800 rounded-xl">
-            <p className="text-sm text-slate-300 font-medium mb-1">No products found matching your search</p>
-            <p className="text-xs text-slate-500 mb-4">Try different keywords or browse our categories above.</p>
+          <div className="text-center py-16 bg-surface border border-border rounded-xl">
+            <p className="text-sm text-secondary font-medium mb-1">No products found matching your search</p>
+            <p className="text-xs text-muted mb-4">Try different keywords or browse our categories above.</p>
             <button
               onClick={() => {
                 setSearchQuery('');
                 setSelectedCategory('all');
               }}
-              className="px-4 py-2 text-xs bg-red-600 hover:bg-red-500 text-white font-medium rounded-lg transition-colors"
+              className="px-4 py-2 text-xs bg-red-600 hover:bg-red-500 text-primary font-medium rounded-lg transition-colors"
             >
               Reset Filters
             </button>
@@ -161,10 +161,10 @@ export const ShopSection: React.FC<ShopSectionProps> = ({
               <div
                 key={product.id}
                 onClick={() => onOpenProductDetail(product)}
-                className="bg-[#141820] border border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between hover:border-slate-700 transition-all duration-200 cursor-pointer group hover:-translate-y-0.5"
+                className="bg-surface border border-border rounded-xl overflow-hidden flex flex-col justify-between hover:border-border transition-all duration-200 cursor-pointer group hover:-translate-y-0.5"
               >
                 {/* Product Image */}
-                <div className="relative h-52 w-full bg-[#181d28] overflow-hidden">
+                <div className="relative h-52 w-full bg-surface-elevated overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -173,12 +173,12 @@ export const ShopSection: React.FC<ShopSectionProps> = ({
                   />
                   
                   {/* Subtle brand kicker */}
-                  <div className="absolute top-2.5 left-2.5 bg-black/70 backdrop-blur-xs text-[10px] text-slate-200 font-medium px-2 py-0.5 rounded">
+                  <div className="absolute top-2.5 left-2.5 bg-black/70 backdrop-blur-xs text-[10px] text-primary font-medium px-2 py-0.5 rounded">
                     {product.brand}
                   </div>
 
                   {product.originalPrice && (
-                    <div className="absolute top-2.5 right-2.5 bg-red-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
+                    <div className="absolute top-2.5 right-2.5 bg-red-600 text-primary text-[10px] font-bold px-1.5 py-0.5 rounded">
                       SAVE {formatPKR(product.originalPrice - product.price)}
                     </div>
                   )}
@@ -187,7 +187,7 @@ export const ShopSection: React.FC<ShopSectionProps> = ({
                   <div className="absolute bottom-2.5 right-2.5 opacity-0 group-hover:opacity-100 transition-opacity">
                     <button
                       type="button"
-                      className="p-1.5 rounded-md bg-black/80 hover:bg-black text-white text-xs flex items-center gap-1 shadow"
+                      className="p-1.5 rounded-md bg-black/80 hover:bg-black text-primary text-xs flex items-center gap-1 shadow"
                       title="Quick View"
                     >
                       <Eye className="w-3.5 h-3.5" />
@@ -199,33 +199,33 @@ export const ShopSection: React.FC<ShopSectionProps> = ({
                 <div className="p-4 flex-1 flex flex-col justify-between">
                   <div>
                     {/* Clean unboxed metadata with dot separator */}
-                    <div className="flex items-center gap-2 text-[11px] text-slate-400 mb-1.5">
+                    <div className="flex items-center gap-2 text-[11px] text-secondary mb-1.5">
                       <span>{product.categoryName}</span>
                       {product.volumeOrSize && (
                         <>
                           <span aria-hidden="true">·</span>
-                          <span className="text-slate-300 font-medium">{product.volumeOrSize}</span>
+                          <span className="text-secondary font-medium">{product.volumeOrSize}</span>
                         </>
                       )}
                     </div>
 
-                    <h3 className="text-sm font-semibold text-white mb-2 line-clamp-2 leading-snug group-hover:text-red-400 transition-colors">
+                    <h3 className="text-sm font-semibold text-primary mb-2 line-clamp-2 leading-snug group-hover:text-red-400 transition-colors">
                       {product.name}
                     </h3>
 
-                    <p className="text-[11px] text-slate-400 line-clamp-2 mb-4">
+                    <p className="text-[11px] text-secondary line-clamp-2 mb-4">
                       {product.description}
                     </p>
                   </div>
 
                   {/* Price & Action */}
-                  <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between mt-auto">
+                  <div className="pt-3 border-t border-border/80 flex items-center justify-between mt-auto">
                     <div>
-                      <div className="text-base font-bold text-white tabular-nums">
+                      <div className="text-base font-bold text-primary tabular-nums">
                         {formatPKR(product.price)}
                       </div>
                       {product.originalPrice && (
-                        <div className="text-[11px] text-slate-500 line-through tabular-nums">
+                        <div className="text-[11px] text-muted line-through tabular-nums">
                           {formatPKR(product.originalPrice)}
                         </div>
                       )}
@@ -236,8 +236,8 @@ export const ShopSection: React.FC<ShopSectionProps> = ({
                       onClick={(e) => handleAdd(e, product)}
                       className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap shrink-0 ${
                         addedProductId === product.id
-                          ? 'bg-emerald-600 text-white'
-                          : 'bg-red-600 hover:bg-red-500 active:bg-red-700 text-white shadow-sm'
+                          ? 'bg-emerald-600 text-primary'
+                          : 'bg-red-600 hover:bg-red-500 active:bg-red-700 text-primary shadow-sm'
                       }`}
                     >
                       {addedProductId === product.id ? (

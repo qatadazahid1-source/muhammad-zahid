@@ -85,9 +85,9 @@ const CATEGORIES: { id: GalleryCategory; label: string }[] = [
 // Placeholder card for images not yet supplied
 const ImagePlaceholder: React.FC<{ alt: string; caption?: string }> = ({ alt, caption }) => (
   <div className="w-full h-full img-placeholder flex flex-col items-center justify-center gap-2 text-center px-4 min-h-[180px]">
-    <LayoutGrid className="w-8 h-8 text-slate-600" aria-hidden="true" />
-    <span className="text-[11px] text-slate-500 leading-snug">{caption || alt}</span>
-    <span className="text-[10px] text-slate-600 font-mono">[Image coming soon]</span>
+    <LayoutGrid className="w-8 h-8 text-muted" aria-hidden="true" />
+    <span className="text-[11px] text-muted leading-snug">{caption || alt}</span>
+    <span className="text-[10px] text-muted font-mono">[Image coming soon]</span>
   </div>
 );
 
@@ -175,12 +175,12 @@ export const GallerySection: React.FC = () => {
             </div>
             <h2
               id="gallery-heading"
-              className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight"
+              className="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight"
             >
               Workshop & Service Gallery
             </h2>
           </div>
-          <p className="text-xs text-slate-400 max-w-xs sm:text-right">
+          <p className="text-xs text-secondary max-w-xs sm:text-right">
             A look inside our workshop, services, and auto store products.
           </p>
         </div>
@@ -194,8 +194,8 @@ export const GallerySection: React.FC = () => {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
                   activeCategory === cat.id
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'bg-[#151922] text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700'
+                    ? 'bg-red-600 text-primary shadow-sm'
+                    : 'bg-surface text-secondary hover:text-primary border border-border hover:border-border'
                 }`}
               >
                 {cat.label}
@@ -209,7 +209,7 @@ export const GallerySection: React.FC = () => {
           {filtered.map((img, index) => (
             <div
               key={img.id}
-              className="reveal relative group rounded-xl overflow-hidden bg-[#141820] border border-slate-800 hover:border-slate-600 transition-all cursor-pointer aspect-square"
+              className="reveal relative group rounded-xl overflow-hidden bg-surface border border-border hover:border-slate-600 transition-all cursor-pointer aspect-square"
               onClick={() => openLightbox(index)}
               role="button"
               tabIndex={0}
@@ -226,12 +226,12 @@ export const GallerySection: React.FC = () => {
                   />
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                    <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+                    <ZoomIn className="w-8 h-8 text-primary opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
                   </div>
                   {/* Caption */}
                   {img.caption && (
                     <div className="absolute bottom-0 left-0 right-0 p-2.5 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform">
-                      <p className="text-[10px] text-white font-medium line-clamp-2">{img.caption}</p>
+                      <p className="text-[10px] text-primary font-medium line-clamp-2">{img.caption}</p>
                     </div>
                   )}
                 </>
@@ -255,7 +255,7 @@ export const GallerySection: React.FC = () => {
           {/* Close */}
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-primary flex items-center justify-center transition-colors"
             aria-label="Close lightbox"
           >
             <X className="w-5 h-5" />
@@ -264,7 +264,7 @@ export const GallerySection: React.FC = () => {
           {/* Prev */}
           <button
             onClick={(e) => { e.stopPropagation(); goPrev(); }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-primary flex items-center justify-center transition-colors"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -279,7 +279,7 @@ export const GallerySection: React.FC = () => {
               style={{ maxHeight: '85vh' }}
             />
             {filtered[lightboxIndex].caption && (
-              <p className="mt-3 text-center text-sm text-slate-300">
+              <p className="mt-3 text-center text-sm text-secondary">
                 {filtered[lightboxIndex].caption}
               </p>
             )}
@@ -288,14 +288,14 @@ export const GallerySection: React.FC = () => {
           {/* Next */}
           <button
             onClick={(e) => { e.stopPropagation(); goNext(); }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-primary flex items-center justify-center transition-colors"
             aria-label="Next image"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
 
           {/* Counter */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-slate-400 bg-black/60 px-3 py-1.5 rounded-full">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-secondary bg-black/60 px-3 py-1.5 rounded-full">
             {lightboxIndex + 1} / {filtered.length}
           </div>
         </div>

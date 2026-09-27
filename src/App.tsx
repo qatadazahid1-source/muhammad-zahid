@@ -146,7 +146,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0f1115] text-slate-100 flex flex-col selection:bg-red-600 selection:text-white">
+    <div className="min-h-screen bg-background text-primary flex flex-col selection:bg-red-600 selection:text-primary">
 
       {/* ── Skip to content (accessibility) ──────── */}
       <a href="#main-content" className="skip-link">
@@ -158,7 +158,7 @@ export default function App() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-20 sm:bottom-6 left-1/2 z-[100] bg-slate-900 border border-slate-700 text-white text-xs px-4 py-2.5 rounded-lg shadow-xl flex items-center gap-2 toast-enter"
+          className="fixed bottom-20 sm:bottom-6 left-1/2 z-[100] bg-background border border-border text-primary text-xs px-4 py-2.5 rounded-lg shadow-xl flex items-center gap-2 toast-enter"
           style={{ transform: 'translateX(-50%)' }}
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
@@ -223,7 +223,7 @@ export default function App() {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 shadow-lg transition-all hover:scale-105"
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-surface hover:bg-surface-elevated text-primary border border-border shadow-lg transition-all hover:scale-105"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4" aria-hidden="true" />
@@ -235,7 +235,7 @@ export default function App() {
           href={`https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${encodeURIComponent('Assalam-o-Alaikum Car Shine! I want to inquire about your services.')}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-xl hover:shadow-2xl transition-all hover:scale-105 text-xs font-bold"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-primary shadow-xl hover:shadow-2xl transition-all hover:scale-105 text-xs font-bold"
           title="Chat with Car Shine on WhatsApp"
           aria-label="Chat with Car Shine on WhatsApp"
         >
@@ -246,7 +246,7 @@ export default function App() {
         {/* Call button */}
         <a
           href={`tel:${BUSINESS_INFO.phone}`}
-          className="flex items-center justify-center w-11 h-11 rounded-full bg-red-600 hover:bg-red-500 text-white shadow-xl transition-all hover:scale-105"
+          className="flex items-center justify-center w-11 h-11 rounded-full bg-red-600 hover:bg-red-500 text-primary shadow-xl transition-all hover:scale-105"
           title={`Call ${BUSINESS_INFO.phoneFormatted}`}
           aria-label={`Call Car Shine at ${BUSINESS_INFO.phoneFormatted}`}
         >
@@ -259,7 +259,7 @@ export default function App() {
         href={`https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${encodeURIComponent('Assalam-o-Alaikum Car Shine! I want to inquire about your services.')}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="sm:hidden fixed bottom-20 right-4 z-40 w-12 h-12 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-xl flex items-center justify-center transition-all hover:scale-105 animate-pulse-red"
+        className="sm:hidden fixed bottom-28 right-4 z-40 w-12 h-12 rounded-full bg-emerald-600 hover:bg-emerald-500 text-primary shadow-xl flex items-center justify-center transition-all hover:scale-105 animate-pulse-red"
         style={{ animation: 'none' }}
         aria-label="Chat on WhatsApp"
       >
@@ -304,7 +304,7 @@ export default function App() {
 
       {/* ── Footer ───────────────────────────────── */}
       {/* Add bottom padding on mobile to account for the bottom bar */}
-      <div className="sm:hidden h-14" aria-hidden="true" />
+      <div className="sm:hidden h-28" aria-hidden="true" />
       <Footer
         onNavigate={handleTabChange}
         onOpenBooking={() => handleOpenBookingModal()}

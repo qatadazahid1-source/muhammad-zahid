@@ -26,7 +26,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onBookClick })
         {/* Call */}
         <a
           href={`tel:${BUSINESS_INFO.phone}`}
-          className="flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-white hover:bg-white/5 transition-colors"
+          className="flex-1 flex flex-col items-center justify-center gap-0.5 text-secondary hover:text-primary hover:bg-white/5 transition-colors"
           aria-label={`Call Car Shine at ${BUSINESS_INFO.phoneFormatted}`}
         >
           <Phone className="w-5 h-5" aria-hidden="true" />
@@ -34,7 +34,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onBookClick })
         </a>
 
         {/* Divider */}
-        <div className="w-px bg-slate-800" aria-hidden="true" />
+        <div className="w-px bg-surface" aria-hidden="true" />
 
         {/* WhatsApp */}
         <a
@@ -49,12 +49,12 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onBookClick })
         </a>
 
         {/* Divider */}
-        <div className="w-px bg-slate-800" aria-hidden="true" />
+        <div className="w-px bg-surface" aria-hidden="true" />
 
         {/* Book */}
         <button
           onClick={onBookClick}
-          className="flex-1 flex flex-col items-center justify-center gap-0.5 bg-red-600 hover:bg-red-500 text-white transition-colors"
+          className="flex-1 flex flex-col items-center justify-center gap-0.5 bg-red-600 hover:bg-red-500 text-primary transition-colors"
           aria-label="Book a service appointment"
         >
           <Calendar className="w-5 h-5" aria-hidden="true" />
