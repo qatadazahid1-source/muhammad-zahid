@@ -15,6 +15,7 @@ import { ProductDetailModal } from './components/ProductDetailModal';
 import { CartDrawer } from './components/CartDrawer';
 import { MyActivityDrawer } from './components/MyActivityDrawer';
 import { Footer } from './components/Footer';
+import { MobileBottomBar } from './components/MobileBottomBar';
 
 import { Product, ServicePackage, CartItem, Booking, Order } from './types';
 import {
@@ -49,19 +50,27 @@ export default function App() {
   const [savedBookings, setSavedBookings] = useState<Booking[]>(() => getSavedBookings());
   const [savedOrders, setSavedOrders] = useState<Order[]>(() => getSavedOrders());
 
-  // Quick toast notification
+  // Toast notification
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  // Show scroll-to-top button
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Sync cart to localStorage
   useEffect(() => {
     saveCart(cart);
   }, [cart]);
 
+  // Track scroll for scroll-to-top button
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   const showToast = (msg: string) => {
     setToastMessage(msg);
-    setTimeout(() => {
-      setToastMessage(null);
-    }, 2400);
+    setTimeout(() => setToastMessage(null), 2400);
   };
 
   const handleAddToCart = (product: Product, quantity = 1) => {
@@ -132,18 +141,32 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-[#0f1115] text-slate-100 flex flex-col selection:bg-red-600 selection:text-white">
-      
-      {/* Toast Alert */}
+
+      {/* ── Skip to content (accessibility) ──────── */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
+      {/* ── Toast Alert ───────────────────────────── */}
       {toastMessage && (
-        <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-slate-900 border border-slate-700 text-white text-xs px-4 py-2.5 rounded-lg shadow-xl flex items-center gap-2 animate-in fade-in duration-200">
-          <span className="w-2 h-2 rounded-full bg-emerald-500" />
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed bottom-20 sm:bottom-6 left-1/2 z-[100] bg-slate-900 border border-slate-700 text-white text-xs px-4 py-2.5 rounded-lg shadow-xl flex items-center gap-2 toast-enter"
+          style={{ transform: 'translateX(-50%)' }}
+        >
+          <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
           <span>{toastMessage}</span>
         </div>
       )}
 
-      {/* Navigation Bar */}
+      {/* ── Navigation Bar ────────────────────────── */}
       <Navbar
         activeTab={activeTab}
         setActiveTab={handleTabChange}
@@ -154,8 +177,8 @@ export default function App() {
         openActivityModal={() => setIsActivityOpen(true)}
       />
 
-      {/* Main Views based on activeTab */}
-      <main className="flex-1">
+      {/* ── Main Content ──────────────────────────── */}
+      <main id="main-content" className="flex-1">
         {activeTab === 'home' && (
           <HomeOverview
             onOpenBooking={(service) => handleOpenBookingModal(service)}
@@ -191,29 +214,59 @@ export default function App() {
         {activeTab === 'location' && <LocationAndContact />}
       </main>
 
-      {/* Persistent Floating WhatsApp & Call Hotline */}
-      <aside aria-label="Customer quick contact" className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2.5">
+      {/* ── Floating WhatsApp + Scroll Top (desktop) ─ */}
+      <aside
+        aria-label="Quick contact actions"
+        className="hidden sm:flex fixed bottom-6 right-5 z-40 flex-col items-end gap-2.5"
+      >
+        {/* Scroll to top */}
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 shadow-lg transition-all hover:scale-105"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp className="w-4 h-4" aria-hidden="true" />
+          </button>
+        )}
+
+        {/* WhatsApp pill */}
         <a
-          href={`https://wa.me/${BUSINESS_INFO.whatsappNumber}`}
+          href={`https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${encodeURIComponent('Assalam-o-Alaikum Car Shine! I want to inquire about your services.')}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group text-xs font-bold"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-xl hover:shadow-2xl transition-all hover:scale-105 text-xs font-bold"
           title="Chat with Car Shine on WhatsApp"
+          aria-label="Chat with Car Shine on WhatsApp"
         >
-          <MessageCircle className="w-5 h-5 fill-white" />
-          <span className="hidden sm:inline">WhatsApp Us</span>
+          <MessageCircle className="w-5 h-5 fill-white" aria-hidden="true" />
+          <span>WhatsApp Us</span>
         </a>
 
+        {/* Call button */}
         <a
           href={`tel:${BUSINESS_INFO.phone}`}
-          className="flex items-center justify-center w-11 h-11 rounded-full bg-red-600 hover:bg-red-500 text-white shadow-xl transition-all transform hover:scale-105"
+          className="flex items-center justify-center w-11 h-11 rounded-full bg-red-600 hover:bg-red-500 text-white shadow-xl transition-all hover:scale-105"
           title={`Call ${BUSINESS_INFO.phoneFormatted}`}
+          aria-label={`Call Car Shine at ${BUSINESS_INFO.phoneFormatted}`}
         >
-          <Phone className="w-4 h-4" />
+          <Phone className="w-4 h-4" aria-hidden="true" />
         </a>
       </aside>
 
-      {/* Service Booking Modal */}
+      {/* ── Mobile floating WhatsApp (separate from bottom bar) ─── */}
+      <a
+        href={`https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${encodeURIComponent('Assalam-o-Alaikum Car Shine! I want to inquire about your services.')}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="sm:hidden fixed bottom-20 right-4 z-40 w-12 h-12 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-xl flex items-center justify-center transition-all hover:scale-105 animate-pulse-red"
+        style={{ animation: 'none' }}
+        aria-label="Chat on WhatsApp"
+      >
+        <MessageCircle className="w-5 h-5 fill-white" aria-hidden="true" />
+      </a>
+
+      {/* ── Service Booking Modal ─────────────────── */}
       <ServiceBookingModal
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}
@@ -223,14 +276,14 @@ export default function App() {
         onBookingConfirmed={handleBookingConfirmed}
       />
 
-      {/* Product Detail Modal */}
+      {/* ── Product Detail Modal ──────────────────── */}
       <ProductDetailModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
         onAddToCart={handleAddToCart}
       />
 
-      {/* Shopping Bag & Checkout Drawer */}
+      {/* ── Shopping Cart Drawer ──────────────────── */}
       <CartDrawer
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
@@ -241,7 +294,7 @@ export default function App() {
         onOrderPlaced={handleOrderPlaced}
       />
 
-      {/* User Activity & History Drawer */}
+      {/* ── User Activity Drawer ──────────────────── */}
       <MyActivityDrawer
         isOpen={isActivityOpen}
         onClose={() => setIsActivityOpen(false)}
@@ -249,11 +302,16 @@ export default function App() {
         orders={savedOrders}
       />
 
-      {/* Footer */}
+      {/* ── Footer ───────────────────────────────── */}
+      {/* Add bottom padding on mobile to account for the bottom bar */}
+      <div className="sm:hidden h-14" aria-hidden="true" />
       <Footer
         onNavigate={handleTabChange}
         onOpenBooking={() => handleOpenBookingModal()}
       />
+
+      {/* ── Mobile Bottom Action Bar ──────────────── */}
+      <MobileBottomBar onBookClick={() => handleOpenBookingModal()} />
 
     </div>
   );

@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
-import { Sparkles, Check, Home, Building2, Truck, ShieldCheck, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Sparkles, Home, Building2, Truck, ShieldCheck, ArrowRight, Search, Droplets, Wind, CheckCircle2 } from 'lucide-react';
 import { formatPKR } from '../utils/helpers';
 import { ServicePackage } from '../types';
 import { SERVICES } from '../data/storeData';
+
+const PROCESS_STEPS = [
+  { num: '01', icon: Search, label: 'Inspection', desc: 'We assess the carpet type, size, stain severity, and fiber sensitivity before selecting the right cleaning method.' },
+  { num: '02', icon: Droplets, label: 'Pre-treatment', desc: 'Specialized pre-spray dissolves stubborn stains, tea marks, oil, and allergens before the main extraction wash.' },
+  { num: '03', icon: Sparkles, label: 'Deep Cleaning', desc: 'Industrial rotary foam scrubbers penetrate deep into the carpet pile to lift embedded dirt and bacteria.' },
+  { num: '04', icon: Wind, label: 'Extraction & Dry', desc: 'High-suction wet vacuum extracts dirty water and moisture. Centrifugal spin drying speeds up drying time.' },
+  { num: '05', icon: CheckCircle2, label: 'Final Inspection', desc: 'A fresh scented rinse is applied, and the carpet is inspected before being returned clean, sealed, and ready.' },
+];
 
 interface CarpetCleaningSectionProps {
   onBookCarpet: (prefilledSqFt?: number, prefilledPrice?: number) => void;
@@ -36,19 +44,39 @@ export const CarpetCleaningSection: React.FC<CarpetCleaningSectionProps> = ({ on
     onBookCarpet(calculatedSqFt, calculatedPrice);
   };
 
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.reveal').forEach((el, i) => {
+              setTimeout(() => el.classList.add('visible'), i * 80);
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-16 lg:py-24 bg-[#0d1017] border-y border-slate-800">
+    <section ref={sectionRef} className="py-16 lg:py-24 bg-[#0d1017] border-y border-slate-800" id="carpet-cleaning" aria-labelledby="carpet-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-red-500 mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Homes, Offices & Mosques</span>
+        <div className="text-center max-w-3xl mx-auto mb-14 reveal">
+          <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-red-500 mb-3">
+            <span className="w-5 h-px bg-red-600" />
+            Homes, Offices & Mosques
+            <span className="w-5 h-px bg-red-600" />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4 [text-wrap:balance]">
+          <h1 id="carpet-heading" className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4" style={{textWrap: 'balance'} as React.CSSProperties}>
             Professional Carpet Cleaning in Shahkot
-          </h2>
+          </h1>
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
             Eliminate embedded dust, allergens, bacteria, and tough food/tea stains with our commercial hot foam extraction machines. Doorstep pickup and fast delivery available across Shahkot.
           </p>
@@ -261,6 +289,30 @@ export const CarpetCleaningSection: React.FC<CarpetCleaningSectionProps> = ({ on
             </p>
           </div>
 
+        </div>
+
+        {/* Cleaning Process Timeline */}
+        <div className="mt-16 pt-12 border-t border-slate-800">
+          <div className="text-center mb-10 reveal">
+            <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-red-500 mb-2">
+              <span className="w-5 h-px bg-red-600" />
+              Our Process
+              <span className="w-5 h-px bg-red-600" />
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-white">How We Clean Your Carpets</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {PROCESS_STEPS.map(({ num, icon: Icon, label, desc }, i) => (
+              <div key={num} className={`reveal reveal-delay-${Math.min(i + 1, 4)} flex flex-col items-center text-center p-4 rounded-xl bg-[#141820] border border-slate-800 hover:border-red-600/30 card-hover`}>
+                <div className="w-12 h-12 rounded-xl bg-red-600/15 text-red-500 flex items-center justify-center mb-3">
+                  <Icon className="w-5 h-5" aria-hidden="true" />
+                </div>
+                <div className="text-2xl font-black text-red-600/20 leading-none mb-1">{num}</div>
+                <h3 className="text-xs font-bold text-white mb-1.5">{label}</h3>
+                <p className="text-[11px] text-slate-400 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

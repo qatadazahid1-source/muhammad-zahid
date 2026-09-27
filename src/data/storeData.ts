@@ -30,7 +30,7 @@ export const SERVICES: ServicePackage[] = [
     duration: '45 - 60 mins',
     basePrice: 700,
     priceNote: 'Starting from Rs. 700 based on vehicle size',
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     badge: 'Most Popular',
     description:
       'Complete vehicle transformation using pressurized snow foam cannons, dedicated wheel arch cleaning, hydraulic ramp undercarriage wash, tire glaze, and high-suction interior cabin vacuuming.',
@@ -58,7 +58,7 @@ export const SERVICES: ServicePackage[] = [
     duration: '25 - 35 mins',
     basePrice: 500,
     priceNote: 'From Rs. 500',
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Perfect quick maintenance wash for daily drivers looking to remove road grime, dust, and mud without spending hours.',
     features: [
@@ -82,7 +82,7 @@ export const SERVICES: ServicePackage[] = [
     duration: '3 - 5 hours',
     basePrice: 4500,
     priceNote: 'Sedan: Rs. 4,500 | SUV: Rs. 6,000',
-    image: '/src/assets/images/service_paint_polish_1790439942254.jpg',
+    image: '/images/Screenshot_2026-09-27_144915.png',
     badge: 'Flawless Finish',
     description:
       'Multi-stage paint correction to eliminate swirl marks, light scratches, oxidation, and water spots, bringing back that showroom optical depth and wet-look shine.',
@@ -109,7 +109,7 @@ export const SERVICES: ServicePackage[] = [
     duration: '6 - 8 hours',
     basePrice: 14000,
     priceNote: 'Starting from Rs. 14,000',
-    image: '/src/assets/images/service_paint_polish_1790439942254.jpg',
+    image: '/images/Screenshot_2026-09-27_144915.png',
     badge: 'Premium Protection',
     description:
       'Top-tier genuine 9H Ceramic Crystal Coating that molecularly bonds with your clear coat. Delivers intense water beading, chemical resistance, and high-depth gloss.',
@@ -135,7 +135,7 @@ export const SERVICES: ServicePackage[] = [
     duration: 'Same-day or 24h drying',
     basePrice: 800,
     priceNote: 'Rs. 30 / sq. ft. or starting from Rs. 800 / standard rug',
-    image: '/src/assets/images/service_carpet_cleaning_1790439927890.jpg',
+    image: '/images/Screenshot_2026-09-27_145134.png',
     badge: 'Home & Office',
     description:
       'Specialized deep shampoo extraction and steam sanitization for residential and commercial carpets, rugs, prayer mats (jaenamaz), and office floor carpets. Free pickup & delivery across Shahkot!',
@@ -157,7 +157,7 @@ export const SERVICES: ServicePackage[] = [
     duration: '20 - 30 mins',
     basePrice: 500,
     priceNote: 'FREE service labor with oil & filter purchase',
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     badge: 'Instant Service',
     description:
       'Professional engine oil draining and fresh synthetic refill using genuine ZIC, Havoline, Toyota, Honda, or Suzuki oil, alongside authentic filter replacements.',
@@ -179,7 +179,7 @@ export const SERVICES: ServicePackage[] = [
     duration: '2 - 3 hours',
     basePrice: 3500,
     priceNote: 'Sedan: Rs. 3,500 | SUV: Rs. 4,500',
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Restore your interior to pristine condition. We deep clean upholstery, steam vents to kill bacteria, and restore luster to door trims, dash, and headliners.',
     features: [
@@ -204,7 +204,7 @@ export const SERVICES: ServicePackage[] = [
     duration: '20 - 30 mins',
     basePrice: 250,
     priceNote: 'Rs. 250 (Wash) | Rs. 450 (Wash + Chain Lube + Polish)',
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'High-pressure wash specialized for motorbikes (Honda 70, 125, Suzuki, Yamaha), carefully avoiding electricals while blasting away mud and chain grease.',
     features: [
@@ -234,7 +234,7 @@ export const PRODUCTS: Product[] = [
     reviewsCount: 38,
     inStock: true,
     featured: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Premium synthetic motor oil engineered with VHVI technology for modern passenger cars. Provides outstanding wear protection, extended engine life, and superior cold-start performance.',
     features: [
@@ -264,7 +264,7 @@ export const PRODUCTS: Product[] = [
     reviewsCount: 42,
     inStock: true,
     featured: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Proven protection for all seasons. Formulated with Deposit Shield technology to shield engine surfaces against harmful deposits and thermal breakdown.',
     features: [
@@ -291,7 +291,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviewsCount: 29,
     inStock: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Original factory-approved Toyota Petron motor oil. Designed specifically to match Toyota engineering specifications for optimal fuel efficiency and engine longevity.',
     features: [
@@ -316,7 +316,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviewsCount: 31,
     inStock: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Engineered specifically for Honda VTEC and i-VTEC engines. Provides rapid lubrication upon startup, reducing frictional drag and maximizing fuel economy.',
     features: [
@@ -341,7 +341,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewsCount: 27,
     inStock: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Authorized Suzuki genuine engine oil engineered for modern Suzuki K-Series and R-Series engines (Alto 660cc, Cultus, Wagon R, Swift).',
     features: [
@@ -366,7 +366,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.7,
     reviewsCount: 19,
     inStock: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'High performance multi-grade engine oil manufactured with high index base stock. Resists viscosity breakdown under severe driving and high temperatures.',
     features: [
@@ -391,7 +391,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.7,
     reviewsCount: 15,
     inStock: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Multi-grade mineral motor oil designed for passenger cars operating under all types of weather conditions. Protects engines against wear and oxidation.',
     features: [
@@ -418,7 +418,7 @@ export const PRODUCTS: Product[] = [
     reviewsCount: 54,
     inStock: true,
     featured: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Synthetic 4-stroke motorcycle engine oil meeting JASO MA2 specifications. Provides smooth clutch engagement, rapid acceleration, and gearbox protection for high RPM bikes.',
     features: [
@@ -444,7 +444,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewsCount: 46,
     inStock: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Official motorcycle engine oil formulated for 4-stroke motorbike engines. Ensures smooth wet-clutch operation and anti-wear protection for gears and valves.',
     features: [
@@ -469,7 +469,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewsCount: 33,
     inStock: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Proven 4-stroke bike oil in convenient 700ml packing, ideal for standard oil changes on Honda CD 70 and China 70cc bikes.',
     features: [
@@ -492,7 +492,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewsCount: 16,
     inStock: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Demineralized pure distilled water for automotive lead-acid batteries and radiator coolant mixing. Free from salts and minerals that damage battery plates.',
     features: ['High purity deionized formula', 'Extends car and UPS battery lifespan'],
@@ -515,7 +515,7 @@ export const PRODUCTS: Product[] = [
     reviewsCount: 22,
     inStock: true,
     featured: true,
-    image: '/src/assets/images/service_paint_polish_1790439942254.jpg',
+    image: '/images/Screenshot_2026-09-27_144915.png',
     description:
       'Professional grade 9H hardness ceramic glass coating. Creates a sacrificial hard barrier over your clear coat that repels water, prevents oxidation, and keeps paint gleaming.',
     features: [
@@ -540,7 +540,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewsCount: 25,
     inStock: true,
-    image: '/src/assets/images/service_paint_polish_1790439942254.jpg',
+    image: '/images/Screenshot_2026-09-27_144915.png',
     description:
       'Premium paste wax enriched with natural Brazilian carnauba wax. Imparts intense wet look shine and water beading protection that lasts through multiple washes.',
     features: [
@@ -564,7 +564,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.7,
     reviewsCount: 39,
     inStock: true,
-    image: '/src/assets/images/service_paint_polish_1790439942254.jpg',
+    image: '/images/Screenshot_2026-09-27_144915.png',
     description:
       'Restores deep satin black luster to dull plastic dashboards, vinyl door trims, and leather seats without leaving an oily or greasy residue.',
     features: [
@@ -587,7 +587,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewsCount: 18,
     inStock: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Concentrated pH neutral car wash shampoo suitable for foam cannons and bucket washing. Safely lifts grime without stripping existing wax or ceramic layers.',
     features: [
@@ -610,7 +610,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviewsCount: 45,
     inStock: true,
-    image: '/src/assets/images/service_paint_polish_1790439942254.jpg',
+    image: '/images/Screenshot_2026-09-27_144915.png',
     description:
       'Ultra-soft 800 GSM dual-sided edgeless microfiber towels. Absorbs water rapidly with zero linting and zero risk of swirl scratches.',
     features: [
@@ -633,7 +633,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.6,
     reviewsCount: 62,
     inStock: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Solid organic aroma gel that sits conveniently inside car cup holders or under seats. Eliminates smoke and food odors for 45+ days.',
     features: ['Available in Citrus, Vanilla, Lavender, and Aqua Blue scents', 'Spill-proof solid gel formula'],
@@ -654,7 +654,7 @@ export const PRODUCTS: Product[] = [
     reviewsCount: 48,
     inStock: true,
     featured: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Beautifully engraved wooden and acrylic Islamic car rearview mirror hanging pendant featuring Ayatul Kursi, Allah & Muhammad calligraphy, accompanied by rich velvet tassels and prayer beads (as seen in our store display).',
     features: [
@@ -678,7 +678,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviewsCount: 36,
     inStock: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Clear legible Arabic text of Safar ki Dua (Subhanalladhi Sakh-khara Lana Hadha...) on a high-grade carved wooden badge with brass spacer beads and tassel.',
     features: [
@@ -703,7 +703,7 @@ export const PRODUCTS: Product[] = [
     reviewsCount: 28,
     inStock: true,
     featured: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Heavy-duty gunmetal zinc alloy protective key enclosure with soft silicone inner shell, embossed button markers, and sport M-stripe carabiner strap (as featured in our key collection).',
     features: [
@@ -729,7 +729,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewsCount: 52,
     inStock: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Flexible, soft-touch matte silicone key jacket. Snug glove fit that protects your car key buttons from wearing off and prevents water moisture ingress.',
     features: [
@@ -755,7 +755,7 @@ export const PRODUCTS: Product[] = [
     reviewsCount: 41,
     inStock: true,
     featured: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Heavy duty suction cup smartphone mount with telescoping arm and 360-degree ball joint. Holds all iPhone and Android devices securely even on bumpy roads.',
     features: [
@@ -780,7 +780,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewsCount: 23,
     inStock: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Heavy duty all-weather non-slip deep dish rubber floor mats. Features deep channels to trap mud, water, sand, and dirt. Cut-to-shape design fits virtually any sedan, hatchback, or crossover.',
     features: [
@@ -804,7 +804,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviewsCount: 34,
     inStock: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Factory custom tailored floor mats with embossed "CULTUS" logo and Suzuki emblem. Precision molded to match Cultus cabin floor contours exactly with edge spill barrier.',
     features: [
@@ -828,7 +828,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewsCount: 19,
     inStock: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Custom cut floor protective mats tailored specifically for Kia Picanto. Features official red Kia Picanto logo and raised perimeter lips to contain spills.',
     features: [
@@ -852,7 +852,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.7,
     reviewsCount: 17,
     inStock: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Dual twin-pipe chrome exhaust tip with bold red enamel junction body. Gives your car an aggressive sports rear aesthetic with clamp-on installation without welding.',
     features: [
@@ -875,7 +875,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewsCount: 14,
     inStock: true,
-    image: '/src/assets/images/hero_car_shine_detailing_1790439912564.jpg',
+    image: '/images/Screenshot_2026-09-27_144845.png',
     description:
       'Sleek slanted oval chrome tailpipe tip. Adds a clean OEM+ luxury styling to your sedan or hatchback exhaust outlet.',
     features: [
@@ -898,7 +898,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviewsCount: 37,
     inStock: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Authentic Suzuki genuine air filter cartridge in original blue Suzuki box. Captures 99% of dust particles while ensuring unrestricted intake airflow for peak fuel efficiency.',
     features: [
@@ -920,7 +920,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewsCount: 29,
     inStock: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'High-efficiency cabin air conditioner filter. Blocks pollen, dust, soot, and road odors from entering through car air conditioning vents.',
     features: [
@@ -941,7 +941,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviewsCount: 31,
     inStock: true,
-    image: '/src/assets/images/oil_change_service_1790439954837.jpg',
+    image: '/images/Screenshot_2026-09-27_145008.png',
     description:
       'Factory Toyota air cleaner filter in authentic red striped Toyota packaging. Engineered to provide exact air mass flow calibration for Toyota dual VVT-i engines.',
     features: ['OEM factory fitment', 'Protects MAF sensor and throttle body'],
